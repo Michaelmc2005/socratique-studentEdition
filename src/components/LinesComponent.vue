@@ -23,7 +23,7 @@
 <script>
 import { VSparkline } from 'vuetify/labs/VSparkline'
 export default {
-  name: 'SparklineComponent',
+  name: 'LinesComponent',
   props: {
     title: String,
     fill: Boolean,
