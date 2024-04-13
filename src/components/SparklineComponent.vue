@@ -9,8 +9,14 @@
       :model-value="value"
       :padding="padding"
       :smooth="smooth"
+      :show-xaxis="true"
       auto-draw
-    ></v-sparkline>
+    >
+      <template v-slot:label="slotProps">
+        <div class="x-axis-label">${{ slotProps.label }}</div>
+      </template>
+      
+    </v-sparkline>
   </div>
 </template>
 
@@ -19,7 +25,6 @@ import { VSparkline } from 'vuetify/labs/VSparkline'
 export default {
   name: 'SparklineComponent',
   props: {
-    // takes in these values from app.vue when it is called
     title: String,
     fill: Boolean,
     gradient: Array,
@@ -28,26 +33,26 @@ export default {
     padding: Number,
     smooth: Boolean,
   },
-  mounted(){
-      console.log("Sparkline Data:", this.value);
-
-  },
   components: {
-      VSparkline,
+    VSparkline,
   },
 };
 </script>
 
 <style>
-
 .text-center{
   padding-top: 2%;
-  transform: scale(150%);
-
-  
+  transform: scale(100%);
 }
+
 .sparkline-component {
-  width: 100%;
+  width: 70%;
   height: 50%;
+  padding-left: 10%;
+}
+
+.x-axis-label {
+  font-size: 0.8em;
+  color: #999; /* Adjust color as needed */
 }
 </style>
